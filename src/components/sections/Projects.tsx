@@ -239,7 +239,7 @@ export const Projects = () => {
                               onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(idx); }}
                               className={`w-16 h-12 shrink-0 rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${currentImageIndex === idx ? `border-rose-500 opacity-100 scale-110 shadow-lg shadow-rose-900/50` : 'border-zinc-800 opacity-60 hover:opacity-100 hover:scale-105'}`}
                             >
-                              <img src={`/Portafolio_Personal/images/projects/${img}`} alt={`Miniatura ${idx + 1}`} className="w-full h-full object-cover" />
+                              <img src={`/portafolio/images/projects/${img}`} alt={`Miniatura ${idx + 1}`} className="w-full h-full object-cover" />
                             </div>
                           ))}
                         </div>
@@ -279,7 +279,7 @@ export const Projects = () => {
                         onClick={() => setIsLightboxOpen(true)}
                       >
                         <img 
-                          src={`/Portafolio_Personal/images/projects/${selectedProject.images ? selectedProject.images[currentImageIndex] : `${selectedProject.previewFeature}.webp`}`}
+                          src={`/portafolio/images/projects/${selectedProject.images ? selectedProject.images[currentImageIndex] : `${selectedProject.previewFeature}.webp`}`}
                           alt={`Vista previa de ${selectedProject.title}`}
                           className="w-full h-full object-cover opacity-80 group-hover/image:opacity-100 group-hover/image:scale-105 transition-all duration-700 transform-gpu"
                           loading="lazy"
@@ -343,7 +343,7 @@ export const Projects = () => {
             )}
 
             <img 
-              src={`/Portafolio_Personal/images/projects/${selectedProject.images ? selectedProject.images[currentImageIndex] : `${selectedProject.previewFeature}.webp`}`} 
+              src={`/portafolio/images/projects/${selectedProject.images ? selectedProject.images[currentImageIndex] : `${selectedProject.previewFeature}.webp`}`} 
               alt="Vista completa" 
               className="max-w-full max-h-full object-contain rounded-lg shadow-2xl transform-gpu"
               loading="lazy"
