@@ -1,37 +1,80 @@
 @import "tailwindcss";
 
 /* 
-  Estilos globales personalizados
+  Identidad Visual: Minimalista Tecnológico (#09090B / #F4F4F5 / #DC2626)
+  Tipografía: Montserrat Bold (Títulos) + Inter (Cuerpo & UI)
 */
+
 @layer base {
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;
+    background-color: #09090b;
+    color: #f4f4f5;
   }
   
-  /* Scrollbar personalizado para navegadores Webkit (Chrome, Edge, Safari) */
+  /* Scrollbar tecnológico discreto */
   ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #09090b; /* zinc-950 */
-    border-left: 1px solid #18181b; /* zinc-900 */
+    background: #09090b;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #27272a; /* zinc-800 */
-    border-radius: 5px;
-    border: 2px solid #09090b; /* para dar efecto de padding */
+    background: #27272a;
+    border-radius: 4px;
+    border: 2px solid #09090b;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #3f3f46; /* zinc-700 */
+    background: #3f3f46;
   }
 
-  /* Estilos para Firefox */
   * {
     scrollbar-width: thin;
     scrollbar-color: #27272a #09090b;
   }
+}
+
+/* Clases tipográficas de la identidad */
+.font-heading {
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 700;
+}
+
+.font-body {
+  font-family: var(--font-inter), sans-serif;
+}
+
+@keyframes craftEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes craftModal {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-craft-enter {
+  animation: craftEnter 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-craft-modal {
+  animation: craftModal 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

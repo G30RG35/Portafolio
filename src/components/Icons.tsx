@@ -1,10 +1,10 @@
 import React, { SVGProps } from 'react';
 
 export type IconName = 
-  | 'react' | 'wordpress' | 'github' | 'external' 
+  | 'react' | 'wordpress' | 'github' | 'linkedin' | 'external' 
   | 'menu' | 'close' | 'code' | 'layers' 
   | 'mail' | 'user' | 'check' | 'sparkles' 
-  | 'cog' | 'briefcase';
+  | 'cog' | 'briefcase' | 'arrowUp';
 
 interface IconProps extends SVGProps<SVGSVGElement> {
   name: IconName;
@@ -95,6 +95,19 @@ export const Icon = ({ name, className = "w-6 h-6", ...props }: IconProps) => {
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props}>
         <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+      </svg>
+    ),
+    linkedin: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props}>
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </svg>
+    ),
+    arrowUp: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={className} {...props}>
+        <line x1="12" y1="19" x2="12" y2="5" />
+        <polyline points="5 12 12 5 19 12" />
       </svg>
     )
   };
