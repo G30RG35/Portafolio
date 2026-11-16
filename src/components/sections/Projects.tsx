@@ -103,7 +103,7 @@ export const Projects = () => {
       : projects.filter((p) => p.category === projectFilter);
 
   return (
-    <section id="proyectos" className="py-20 sm:py-24 border-t border-[#27272A] bg-[#18181B]">
+    <section id="proyectos" className="py-20 sm:py-24 border-t border-[#27272A] bg-[#18181B] relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-10">
         
         {/* Cabecera y Filtros */}
@@ -122,8 +122,8 @@ export const Projects = () => {
             </p>
           </div>
 
-          {/* Filtros de Categoría */}
-          <div className="flex flex-wrap gap-1 p-1 bg-[#09090B] border border-[#27272A] rounded-lg self-start md:self-end">
+          {/* Filtros de Categoría con acento activo */}
+          <div className="flex flex-wrap gap-1.5 p-1 bg-[#09090B] border border-[#27272A] rounded-lg self-start md:self-end">
             {[
               { id: "todos", label: "Todos" },
               { id: "wordpress", label: "WordPress" },
@@ -135,10 +135,10 @@ export const Projects = () => {
                 <button
                   key={filter.id}
                   onClick={() => setProjectFilter(filter.id)}
-                  className={`px-3 py-1.5 rounded-md text-xs font-medium transition-[background-color,color] duration-150 active:scale-[0.98] ${
+                  className={`px-3.5 py-1.5 rounded-md text-xs font-semibold transition-[background-color,color,box-shadow] duration-150 active:scale-[0.98] ${
                     isSelected
-                      ? "bg-[#27272A] text-[#F4F4F5] font-semibold"
-                      : "text-[#A1A1AA] hover:text-[#F4F4F5]"
+                      ? "bg-[#DC2626] text-white shadow-[0_2px_10px_rgba(220,38,38,0.4)]"
+                      : "text-[#A1A1AA] hover:text-[#F4F4F5] hover:bg-[#18181B]"
                   }`}
                 >
                   {filter.label}
@@ -148,7 +148,7 @@ export const Projects = () => {
           </div>
         </div>
 
-        {/* Grid de Proyectos en fondo #09090B con bordes #27272A */}
+        {/* Grid de Proyectos con Mockups reales y color */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => (
             <div
@@ -157,34 +157,66 @@ export const Projects = () => {
                 setSelectedProject(project);
                 setCurrentImageIndex(0);
               }}
-              className="cursor-pointer bg-[#09090B] rounded-xl border border-[#27272A] hover:border-[#3F3F46] hover:-translate-y-1 transition-[transform,border-color] duration-150 flex flex-col justify-between overflow-hidden group shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
+              className="cursor-pointer bg-[#09090B] rounded-xl border border-[#27272A] hover:border-[#DC2626]/50 hover:-translate-y-1 transition-[transform,border-color,box-shadow] duration-200 flex flex-col justify-between overflow-hidden group shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.7),0_0_20px_rgba(220,38,38,0.12)]"
             >
-              {/* Encabezado de tarjeta */}
-              <div className="px-5 pt-5 pb-3 flex items-center justify-between border-b border-[#27272A]">
-                <span className="text-[11px] font-mono text-[#A1A1AA] uppercase tracking-wide bg-[#18181B] px-2 py-0.5 rounded border border-[#27272A]">
-                  {project.category}
-                </span>
-                <span className="text-xs text-[#DC2626] font-mono flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
-                  Examinar &rarr;
-                </span>
+              {/* Mockup visual de la web en la tarjeta */}
+              <div className="relative aspect-[16/10] overflow-hidden bg-[#18181B] border-b border-[#27272A]">
+                <img
+                  src={`/Portafolio/images/projects/${
+                    project.images ? project.images[0] : `${project.previewFeature}.webp`
+                  }`}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src =
+                      "https://via.placeholder.com/800x600/18181b/3f3f46?text=Captura+Pendiente";
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#09090B] via-transparent to-black/20 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                
+                {/* Badges superiores sobre el mockup */}
+                <div className="absolute top-3 left-3 flex items-center gap-2">
+                  <span
+                    className={`text-[10px] font-mono uppercase tracking-wide px-2 py-0.5 rounded font-semibold border backdrop-blur-md ${
+                      project.category === "wordpress"
+                        ? "text-blue-300 bg-blue-950/80 border-blue-700/60"
+                        : project.category === "react"
+                        ? "text-sky-300 bg-sky-950/80 border-sky-700/60"
+                        : "text-amber-300 bg-amber-950/80 border-amber-700/60"
+                    }`}
+                  >
+                    {project.category}
+                  </span>
+                </div>
+
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-[#09090B]/85 border border-[#27272A] px-2 py-0.5 rounded text-[10px] font-mono text-[#F4F4F5] backdrop-blur-md">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span>Producción</span>
+                </div>
               </div>
 
               {/* Título y descripción */}
               <div className="p-5 space-y-2.5">
-                <h3 className="font-heading text-base text-[#F4F4F5] group-hover:text-white transition-colors">
-                  {project.title}
-                </h3>
-                <p className="font-body text-xs text-[#A1A1AA] leading-relaxed line-clamp-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-heading text-base text-[#F4F4F5] group-hover:text-white transition-colors">
+                    {project.title}
+                  </h3>
+                  <span className="text-xs text-[#DC2626] font-mono flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    Ver caso &rarr;
+                  </span>
+                </div>
+                <p className="font-body text-xs text-[#A1A1AA] leading-relaxed line-clamp-2">
                   {project.shortDescription}
                 </p>
               </div>
 
               {/* Stack de tags al pie de la tarjeta */}
-              <div className="px-5 pb-5 pt-2 flex flex-wrap gap-1.5 border-t border-[#27272A] mt-auto">
+              <div className="px-5 pb-5 pt-2 flex flex-wrap gap-1.5 border-t border-[#27272A]/80 mt-auto">
                 {project.techStack.slice(0, 3).map((tech, i) => (
                   <span
                     key={i}
-                    className="text-[11px] font-mono bg-[#18181B] border border-[#27272A] px-2 py-0.5 rounded text-[#A1A1AA]"
+                    className="text-[11px] font-mono bg-[#18181B] border border-[#27272A] px-2 py-0.5 rounded text-zinc-300"
                   >
                     {tech}
                   </span>
@@ -253,10 +285,10 @@ export const Projects = () => {
                       href={selectedProject.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-full h-11 px-4 rounded-lg text-xs font-semibold text-[#F4F4F5] transition-[background-color,transform] duration-150 active:scale-[0.98] flex items-center justify-center gap-2 ${theme.bg} ${theme.hoverBg} shadow-[0_1px_3px_rgba(220,38,38,0.4)]`}
+                      className={`w-full h-11 px-4 rounded-lg text-xs font-semibold text-[#F4F4F5] transition-[background-color,transform,box-shadow] duration-150 active:scale-[0.98] flex items-center justify-center gap-2 ${theme.bg} ${theme.hoverBg} shadow-[0_4px_14px_rgba(220,38,38,0.4)]`}
                     >
                       <span>Visitar sitio en producción</span>
-                      <Icon name="external" className="w-3.5 h-3.5" />
+                      <Icon name="external" className="w-3.5 h-3.5 text-white" />
                     </a>
 
                     {/* Miniaturas de galería */}
@@ -270,7 +302,7 @@ export const Projects = () => {
                               onClick={() => setCurrentImageIndex(idx)}
                               className={`w-14 h-10 rounded border overflow-hidden transition-all duration-150 active:scale-[0.95] ${
                                 currentImageIndex === idx
-                                  ? "border-[#DC2626] opacity-100 ring-1 ring-[#DC2626]"
+                                  ? "border-[#DC2626] opacity-100 ring-2 ring-[#DC2626]/50"
                                   : "border-[#27272A] opacity-60 hover:opacity-100"
                               }`}
                             >
@@ -286,10 +318,10 @@ export const Projects = () => {
                     )}
                   </div>
 
-                  {/* Previsualización visual de pantalla (Mockup Frame) */}
+                  {/* Previsualización visual de pantalla */}
                   <div className="lg:col-span-7">
                     <div
-                      className="bg-[#09090B] border border-[#27272A] rounded-lg overflow-hidden cursor-pointer relative group"
+                      className="bg-[#09090B] border border-[#27272A] rounded-lg overflow-hidden cursor-pointer relative group shadow-2xl"
                       onClick={() => setIsLightboxOpen(true)}
                     >
                       <img

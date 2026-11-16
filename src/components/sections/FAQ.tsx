@@ -9,29 +9,34 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "¿Qué valor aportas como Tech Lead además del desarrollo de código?",
+    question: "¿Por qué trabajar conmigo en lugar de una agencia tradicional o un freelancer común?",
     answer:
-      "Combino desarrollo activo con visión arquitectónica y liderazgo de equipo: estructuro proyectos escalables, defino estándares de Clean Code, realizo revisiones rigurosas de Pull Requests (PRs), estimo entregables de forma realista y coordino desarrolladores junior y mid para cumplir plazos sin generar deuda técnica.",
+      "Cuentas con un profesional con experiencia técnica y de liderazgo: me aseguro de que tu web se entregue en los plazos acordados, sin costes ocultos y con los más altos estándares de calidad. Tu web estará lista para vender y crecer, sin que tengas que rehacerla desde cero meses después.",
   },
   {
-    question: "¿Por qué combinar React.js con WordPress?",
+    question: "¿Podré editar y gestionar el contenido de mi web yo mismo sin saber programar?",
     answer:
-      "Permite lo mejor de dos mundos: la velocidad, dinamismo e interactividad de vanguardia de una aplicación moderna en React, con la autoadministración y facilidad editorial que ofrece WordPress para equipos de contenido o ventas, evitando dependencias innecesarias de soporte técnico diario.",
+      "Sí, 100%. Entrego tu sitio con un panel de administración visual e intuitivo (WordPress o panel personalizado). Podrás actualizar textos, subir fotos, cambiar precios o añadir nuevos productos fácilmente. Además, te brindo una sesión de inducción para que tengas total independencia.",
   },
   {
-    question: "¿Cómo garantizas la velocidad de carga y WPO (Web Performance Optimization)?",
+    question: "¿Mi web cargará rápido y se verá perfecta en teléfonos móviles?",
     answer:
-      "Desarrollo con buenas prácticas estrictas: formatos modernos WebP/AVIF, lazy loading selectivo, CSS atómico optimizado con Tailwind, reducción al mínimo de plugins en WordPress mediante código a la medida (Custom Post Types, ACF) y optimización de métricas Core Web Vitals (LCP, FID/INP, CLS).",
+      "Garantizado. Cada web que desarrollo está optimizada para cargar en menos de 2 segundos en conexiones móviles y cumplir con los estándares de Google (Core Web Vitals). Un sitio rápido retiene a más clientes y posiciona mucho mejor en los resultados de búsqueda.",
   },
   {
-    question: "¿Cuál es tu disponibilidad y modalidad de trabajo?",
+    question: "¿Cuánto tarda el desarrollo y qué necesito para comenzar?",
     answer:
-      "Trabajo de forma 100% remota para empresas y clientes en Latinoamérica, Norteamérica y Europa. Me adapto con fluidez a dinámicas ágiles (Scrum, Kanban, sprints bisemanales) y herramientas de colaboración modernas (Git/GitHub, Linear, Jira, Slack, Figma).",
+      "Una landing page o web corporativa toma habitualmente entre 1 y 2 semanas; plataformas más complejas o tiendas online, entre 3 y 5 semanas. Para arrancar solo necesitamos una breve llamada para definir tus metas, tu logotipo y el contenido base que deseas mostrar.",
   },
   {
-    question: "¿Cómo cotizas un desarrollo y en cuánto tiempo se inicia?",
+    question: "¿Qué garantía y soporte ofreces una vez entregada la web?",
     answer:
-      "Una vez recibidos los requerimientos en el formulario o en una sesión técnica, entrego una propuesta de arquitectura y estimación transparente en 24-48 horas. Con el alcance aprobado, la fase de arranque y sprints comienza dentro de la misma semana.",
+      "Todos los proyectos incluyen un periodo de garantía de 30 días tras el lanzamiento para resolver cualquier duda o ajuste sin coste adicional. También ofrezco planes opcionales de mantenimiento preventivo, copias de seguridad periódicas y soporte continuo.",
+  },
+  {
+    question: "¿Cómo es el proceso de presupuesto y forma de pago?",
+    answer:
+      "Tras revisar lo que necesita tu negocio, te entrego una cotización cerrada y transparente en menos de 24 horas. Trabajamos habitualmente con un 50% de anticipo para iniciar el proyecto y el 50% restante al finalizar y recibir tu aprobación en el entorno de pruebas.",
   },
 ];
 
@@ -53,10 +58,10 @@ export const FAQ = () => {
             <span className="text-[#A1A1AA] uppercase tracking-wider text-[11px]">PREGUNTAS FRECUENTES</span>
           </div>
           <h2 className="font-heading text-2xl sm:text-4xl text-[#F4F4F5] tracking-tight">
-            Metodología, tiempos y <span className="text-[#DC2626]">arquitectura</span>
+            Claridad total en <span className="text-[#DC2626]">tiempos y entregas</span>
           </h2>
           <p className="font-body text-[#A1A1AA] text-sm leading-relaxed">
-            Respuestas directas sobre dinámica de trabajo, entregables técnicos y soporte continuo.
+            Respuestas claras y directas a las dudas más comunes sobre el proceso de creación de tu web, soporte y garantías.
           </p>
         </div>
 
