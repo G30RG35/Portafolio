@@ -53,7 +53,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contacto" className="py-20 sm:py-24 border-t border-[#27272A] bg-[#18181B]">
+    <section id="contacto" className="py-20 sm:py-24 border-t border-[#27272A] bg-[#18181B] relative">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 space-y-10">
         
         <div className="space-y-3 text-left sm:text-center sm:max-w-xl sm:mx-auto">
@@ -66,12 +66,12 @@ export const Contact = () => {
             Hablemos de tu <span className="text-[#DC2626]">proyecto</span>
           </h2>
           <p className="font-body text-[#A1A1AA] text-sm leading-relaxed">
-            Escríbeme con los detalles de tu proyecto, arquitectura deseada o perfil requerido. Respondo con una propuesta técnica inicial en menos de 24 horas hábiles.
+            Escríbeme con los detalles de tu proyecto o idea. Te responderé a la brevedad con una propuesta clara y sin compromiso.
           </p>
         </div>
 
-        <div className="bg-[#09090B] border border-[#27272A] rounded-xl p-6 sm:p-8 shadow-xl">
-          <form onSubmit={handleContactSubmit} className="space-y-5">
+        <div className="bg-[#09090B] border border-[#27272A] rounded-xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+          <form onSubmit={handleContactSubmit} className="space-y-5 relative z-10">
             
             <div className="space-y-1.5">
               <label htmlFor="name" className="block text-xs font-semibold text-[#A1A1AA] uppercase tracking-wider">
@@ -87,8 +87,8 @@ export const Contact = () => {
                 onChange={(e) =>
                   setContactData({ ...contactData, name: e.target.value })
                 }
-                placeholder="Jorge Inostroza / Empresa"
-                className="w-full bg-[#18181B] border border-[#27272A] focus:border-[#DC2626] focus:ring-1 focus:ring-[#DC2626]/20 transition-all duration-150 rounded-lg p-3.5 text-base sm:text-sm text-[#F4F4F5] placeholder-[#71717A] outline-none"
+                placeholder="Tu nombre o empresa"
+                className="w-full bg-[#18181B] border border-[#27272A] focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 transition-all duration-150 rounded-lg p-3.5 text-base sm:text-sm text-[#F4F4F5] placeholder-[#71717A] outline-none"
               />
             </div>
 
@@ -108,13 +108,13 @@ export const Contact = () => {
                     setContactData({ ...contactData, email: e.target.value })
                   }
                   placeholder="contacto@empresa.com"
-                  className="w-full bg-[#18181B] border border-[#27272A] focus:border-[#DC2626] focus:ring-1 focus:ring-[#DC2626]/20 transition-all duration-150 rounded-lg p-3.5 text-base sm:text-sm text-[#F4F4F5] placeholder-[#71717A] outline-none"
+                  className="w-full bg-[#18181B] border border-[#27272A] focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 transition-all duration-150 rounded-lg p-3.5 text-base sm:text-sm text-[#F4F4F5] placeholder-[#71717A] outline-none"
                 />
               </div>
 
               <div className="space-y-1.5">
                 <label htmlFor="subject" className="block text-xs font-semibold text-[#A1A1AA] uppercase tracking-wider">
-                  Alcance o Rol
+                  Tipo de Proyecto
                 </label>
                 <input
                   type="text"
@@ -125,15 +125,15 @@ export const Contact = () => {
                   onChange={(e) =>
                     setContactData({ ...contactData, subject: e.target.value })
                   }
-                  placeholder="Tech Lead / Proyecto React / WordPress"
-                  className="w-full bg-[#18181B] border border-[#27272A] focus:border-[#DC2626] focus:ring-1 focus:ring-[#DC2626]/20 transition-all duration-150 rounded-lg p-3.5 text-base sm:text-sm text-[#F4F4F5] placeholder-[#71717A] outline-none"
+                  placeholder="Web corporativa, Tienda online, Landing page..."
+                  className="w-full bg-[#18181B] border border-[#27272A] focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 transition-all duration-150 rounded-lg p-3.5 text-base sm:text-sm text-[#F4F4F5] placeholder-[#71717A] outline-none"
                 />
               </div>
             </div>
 
             <div className="space-y-1.5">
               <label htmlFor="message" className="block text-xs font-semibold text-[#A1A1AA] uppercase tracking-wider">
-                Descripción de requerimientos técnicos *
+                Cuéntame sobre tu proyecto *
               </label>
               <textarea
                 id="message"
@@ -144,43 +144,43 @@ export const Contact = () => {
                 onChange={(e) =>
                   setContactData({ ...contactData, message: e.target.value })
                 }
-                placeholder="Describe los objetivos del proyecto, stack tecnológico deseado y fechas estimadas."
-                className="w-full bg-[#18181B] border border-[#27272A] focus:border-[#DC2626] focus:ring-1 focus:ring-[#DC2626]/20 transition-all duration-150 rounded-lg p-3.5 text-base sm:text-sm text-[#F4F4F5] placeholder-[#71717A] outline-none resize-none font-body"
+                placeholder="Describe brevemente qué tipo de web buscas, tus objetivos o cualquier duda que tengas."
+                className="w-full bg-[#18181B] border border-[#27272A] focus:border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 transition-all duration-150 rounded-lg p-3.5 text-base sm:text-sm text-[#F4F4F5] placeholder-[#71717A] outline-none resize-none font-body"
               ></textarea>
             </div>
 
-            <div className="flex items-center justify-between text-xs text-[#A1A1AA] font-mono pt-1">
+            <div className="flex items-center justify-between text-xs text-[#A1A1AA] pt-1">
               <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626]"></span>
-                <span>SLA: respuesta en &lt; 24h</span>
+                <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span className="text-[#A1A1AA]">Disponible para nuevos proyectos</span>
               </span>
-              <span>Datos cifrados y privados</span>
+              <span className="text-zinc-500">Tus datos están protegidos</span>
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full h-12 rounded-lg font-semibold text-xs sm:text-sm text-[#F4F4F5] transition-[background-color,transform] duration-150 active:scale-[0.98] flex items-center justify-center gap-2 ${theme.bg} ${theme.hoverBg} shadow-[0_1px_3px_rgba(220,38,38,0.4)] disabled:opacity-50`}
+              className={`w-full h-12 rounded-lg font-semibold text-xs sm:text-sm text-[#F4F4F5] transition-[background-color,transform,box-shadow] duration-150 active:scale-[0.98] flex items-center justify-center gap-2 ${theme.bg} ${theme.hoverBg} shadow-[0_4px_14px_rgba(220,38,38,0.45)] hover:shadow-[0_6px_20px_rgba(220,38,38,0.6)] disabled:opacity-50`}
             >
               {isSubmitting ? (
                 <span>Enviando mensaje...</span>
               ) : (
                 <>
-                  <Icon name="mail" className="w-4 h-4" />
-                  <span>Enviar requerimientos</span>
+                  <Icon name="mail" className="w-4 h-4 text-white" />
+                  <span>Enviar mensaje</span>
                 </>
               )}
             </button>
 
             {submitStatus === "success" && (
-              <div className="p-4 rounded-lg bg-[#09090B] border border-[#DC2626] text-[#F4F4F5] text-xs flex items-center gap-2.5 animate-craft-enter">
-                <Icon name="check" className="w-4 h-4 text-[#DC2626] shrink-0" />
+              <div className="p-4 rounded-lg bg-[#09090B] border border-emerald-500/50 text-[#F4F4F5] text-xs flex items-center gap-2.5 animate-craft-enter shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+                <Icon name="check" className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>Mensaje recibido correctamente. Me pondré en contacto contigo a la brevedad.</span>
               </div>
             )}
 
             {submitStatus === "error" && (
-              <div className="p-4 rounded-lg bg-[#09090B] border border-red-800 text-red-300 text-xs flex items-center gap-2.5 animate-craft-enter">
+              <div className="p-4 rounded-lg bg-[#09090B] border border-red-500/50 text-red-300 text-xs flex items-center gap-2.5 animate-craft-enter shadow-[0_0_15px_rgba(220,38,38,0.15)]">
                 <span>Por favor verifica que todos los campos requeridos estén completos.</span>
               </div>
             )}
